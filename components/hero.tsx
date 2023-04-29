@@ -45,7 +45,7 @@ export const Hero = () => {
           </div>
           <div className="mt-7 gap-8 sm:-mt-44 sm:pl-20 lg:mt-0 lg:pl-0">
             <img 
-                src={'/team.jpg'} sizes="50vw" className="w-auto rounded-lg animate-fade-up delay-200" alt="Team Foto" 
+                src={'/team.jpg'} sizes="50vw" className="w-auto rounded-lg animate-fade-up" alt="Team Foto" 
                 style={{ animationDelay: "0.5s", animationFillMode: "backwards" }}
             />
           </div>
