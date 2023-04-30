@@ -13,7 +13,7 @@ type NavigationProps = {
 
 const navigation = [
   { name: 'Aktuelles', href: '#' },
-  { name: 'Team', href: '#' },
+  { name: 'Team', href: '#team' },
   { name: 'Partner', href: '#' },
   { name: 'Portfolio', href: '#' },
   { name: 'Kontakt', href: '#' },
@@ -25,6 +25,7 @@ const NavItem = ({ href, children }: NavigationProps) => {
   return (
     <li>
       <Link
+        scroll={false}
         href={href}
         className={clsx(
           'relative block px-3 py-2 transition',
@@ -45,7 +46,7 @@ const NavItem = ({ href, children }: NavigationProps) => {
 const MobileNavItem = ({ href, children }: NavigationProps) => {
   return (
     <li>
-      <Popover.Button as={Link} href={href} className="block py-2">
+      <Popover.Button as={Link} href={href} className="block py-2" scroll={false}>
         {children}
       </Popover.Button>
     </li>
