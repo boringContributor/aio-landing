@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 const navigation = [
     {
       name: 'Facebook',
@@ -43,6 +45,11 @@ const navigation = [
             <p className="text-center text-xs leading-5 text-gray-500">
               &copy; {new Date().getFullYear()} All In One - Gesundheitsmanagement
             </p>
+            <div className="text-center">
+                <Link href={'/impressum'} className="text-xs leading-5 text-gray-500 hover:underline">
+                    Impressum & Datenschutz
+                </Link>
+            </div>
           </div>
         </div>
       </footer>
