@@ -6,9 +6,8 @@ type LayoutProps = {
 
 export const Layout = (props: LayoutProps) => {
     return (
-        <div>
+        <div className="bg-gradient-to-br from-red-50 via-white to-red-200" >
             <Navigation />
-            <div  />
             {props.children}
         </div>
     )
