@@ -6,7 +6,7 @@ export const Hero = () => {
           <div className="md:px-0 lg:pr-4 lg:pt-4">
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
               <h1 
-                className="text-center mt-2 text-2xl font-bold tracking-tight text-gray-900 sm:text-5xl animate-fade-up"
+                className="text-center mt-2 text-3xl font-bold tracking-tighter text-gray-900 sm:text-5xl animate-fade-up"
                 style={{ animationDelay: "0.1s", animationFillMode: "backwards" }}
               >
                 <span className="text-red-800">A</span>ll <span className="text-red-800">I</span>n <span className="text-red-800">O</span>ne Gesundheitsmanagement

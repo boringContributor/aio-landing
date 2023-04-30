@@ -1,3 +1,4 @@
+import { Footer } from "./footer"
 import { Navigation } from "./navigation"
 
 type LayoutProps = {
@@ -9,6 +10,7 @@ export const Layout = (props: LayoutProps) => {
         <div className="bg-gradient-to-br from-red-50 via-white to-red-200" >
             <Navigation />
             {props.children}
+            <Footer />
         </div>
     )
 }
