@@ -24,15 +24,15 @@ export const Hero = () => {
       </svg>
       <rect width="100%" height="100%" strokeWidth={0} fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)" />
     </svg>
-    <div className="overflow-hidden mt-10">
+    <div className="lg:mt-10">
       <div className="mx-auto max-w-7xl px-6 pb-32  lg:px-8 ">
-        <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
-          <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
+        <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none sm:items-center">
+          <div className="w-full max-w-xl sm:shrink-0 xl:max-w-2xl">
             <h1 
               className="text-center text-2xl font-bold tracking-tight text-gray-900 sm:text-6xl animate-fade-up"
               style={{ animationDelay: "0.1s", animationFillMode: "backwards" }}
               >
-                All In One Gesundheitsmanagement
+                <span className="text-red-800">A</span>ll <span className="text-red-800">I</span>n <span className="text-red-800">O</span>ne Gesundheitsmanagement
             </h1>
             <p 
               className="break-all srelative mt-6 leading-8 text-gray-600 sm:max-w-md lg:max-w-none animate-fade-up"
@@ -43,7 +43,7 @@ export const Hero = () => {
               mollit id pariatur in voluptate cillum.
             </p>
           </div>
-          <div className="mt-7 gap-8 sm:-mt-44 sm:pl-20 lg:mt-0 lg:pl-0">
+          <div className="gap-8 sm:-mt-44 sm:pl-20 lg:mt-0 lg:pl-0">
             <img 
                 src={'/team.jpg'} sizes="50vw" className="w-auto rounded-lg animate-fade-up" alt="Team Foto" 
                 style={{ animationDelay: "0.5s", animationFillMode: "backwards" }}
