@@ -12,10 +12,10 @@ type NavigationProps = {
 }
 
 const navigation = [
-  { name: 'Aktuelles', href: '#' },
+  { name: 'Aktuelles', href: '#aktuelles' },
   { name: 'Team', href: '#team' },
-  { name: 'Partner', href: '#' },
-  { name: 'Portfolio', href: '#' },
+  { name: 'Partner', href: '#partner' },
+  { name: 'Portfolio', href: '#portfolio' },
   { name: 'Kontakt', href: '#kontakt' },
 ]
 
@@ -36,7 +36,7 @@ const NavItem = ({ href, children }: NavigationProps) => {
       >
         {children}
         {isActive && (
-          <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-500/40 to-teal-500/0" />
+          <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-red-500/40 to-red-500/0" />
         )}
       </Link>
     </li>

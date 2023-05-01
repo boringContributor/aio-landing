@@ -1,6 +1,6 @@
 export const Partner = () => {
-    return (
-          <div className="grid grid-cols-1 items-center gap-x-8 gap-y-16 lg:grid-cols-2">
+    return ( 
+          <div id="partner" className="grid grid-cols-1 items-center gap-x-8 gap-y-16 lg:grid-cols-2">
             <div className="mx-auto w-full max-w-xl lg:mx-0">
               <h2 className="text-3xl font-bold tracking-tight">Unsere Kooperationspartner</h2>
               <p 
