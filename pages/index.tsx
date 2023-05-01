@@ -1,6 +1,7 @@
-import { Hero } from "../components/hero";
-import { Partner } from "../components/partner";
-import { Team } from "../components/team";
+import { Contact } from "../components/sections/contact";
+import { Hero } from "../components/sections/hero";
+import { Partner } from "../components/sections/partner";
+import { Team } from "../components/sections/team";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
         <Hero />
         <Team />
         <Partner />
+        <Contact />
     </div>
   )
 }

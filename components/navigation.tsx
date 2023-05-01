@@ -16,7 +16,7 @@ const navigation = [
   { name: 'Team', href: '#team' },
   { name: 'Partner', href: '#' },
   { name: 'Portfolio', href: '#' },
-  { name: 'Kontakt', href: '#' },
+  { name: 'Kontakt', href: '#kontakt' },
 ]
 
 const NavItem = ({ href, children }: NavigationProps) => {
