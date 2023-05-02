@@ -1,17 +1,17 @@
 const people = [
     {
       name: 'Patrick Rauner',
-      role: 'Founder & CEO',
+      role: 'Physiotherapeut',
       href: '/patrick.jpg'
     },
     {
         name: 'Andreas Rauner',
-        role: 'Founder & CEO',
+        role: 'Physiotherapeut',
         href: '/andreas.jpg'
     },
     {
         name: 'Jana Rauner',
-        role: 'Founder & CEO',
+        role: 'Physiotherapeutin',
         href: '/jana.jpg'
     },
   ]
