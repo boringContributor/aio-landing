@@ -28,7 +28,7 @@ export const Layout = (props: LayoutProps) => {
                     }
                 />
             </Head>
-            <div className="bg-gradient-to-br from-red-50 via-red-50 to-red-200" >
+            <div className="bg-gradient-to-br from-red-300 via-white to-red-300" >
                 <Navigation />
                 {props.children}
                 <Footer />
