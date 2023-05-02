@@ -16,16 +16,14 @@ export const Layout = (props: LayoutProps) => {
                     content="All In One Gesundheitsmanagement"
                 />
                 <meta property="og:title" content="All In One Gesundheitsmanagement" />
+                <meta property="og:url" content="https://www.aio-gesundheitsmanagement.de/" />
                 <meta
                     property="og:description"
                     content="Betriebliches Gesundheitsmanagement"
                 />
                 <meta
                     name="og:image"
-                    content={
-                        `${process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : ''
-                        }/api/og`
-                    }
+                    content={`https://www.aio-gesundheitsmanagement.de/api/og`}
                 />
             </Head>
             <div className="bg-gradient-to-br from-red-300 via-white to-red-300" >
