@@ -27,11 +27,6 @@ export const Layout = (props: LayoutProps) => {
                         }/api/og`
                     }
                 />
-
-                <meta
-                    property="og:image"
-                    content="/total_logo_color.svg"
-                />
             </Head>
             <div className="bg-gradient-to-br from-red-50 via-red-50 to-red-200" >
                 <Navigation />
