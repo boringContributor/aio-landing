@@ -26,8 +26,8 @@ export const Layout = (props: LayoutProps) => {
                     content={`https://www.aio-gesundheitsmanagement.de/api/og`}
                 />
             </Head>
-            <div className="h-screen bg-gradient-to-br from-red-100 via-white to-red-300" >
-                {/* <Navigation /> */}
+            <div className="bg-gradient-to-br from-red-100 via-white to-red-300" >
+                <Navigation />
                 {props.children}
                 <Footer />
             </div>
