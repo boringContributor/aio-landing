@@ -112,10 +112,11 @@ const MobileNavigation = () => {
 
 
 const DesktopNavigation = () => {
+  const router = useRouter()
   return (
     <div className="pointer-events-auto hidden md:block md:space-y-4">
       <div className="flex justify-center items-center">
-        <Image src="/total_logo_color.svg" alt="Logo" width={150} height={150} className="h-24 w-auto" priority/>
+        <Image onClick={() => router.push('/')} src="/total_logo_color.svg" alt="Logo" width={150} height={150} className="h-24 w-auto cursor-pointer" priority/>
       </div>
       <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur">
         {
