@@ -21,6 +21,14 @@ export const Layout = (props: LayoutProps) => {
                     content="Betriebliches Gesundheitsmanagement"
                 />
                 <meta
+                    name="og:image"
+                    content={
+                        `${process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : ''
+                        }/api/og`
+                    }
+                />
+
+                <meta
                     property="og:image"
                     content="/total_logo_color.svg"
                 />
