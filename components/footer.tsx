@@ -32,7 +32,7 @@ const navigation = [
   export const Footer = () => {
     return (
       <footer>
-        <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:flex-col-reverse gap-2 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:flex-col-reverse gap-2 lg:px-8 mt-5">
           <div className="flex justify-center space-x-6 md:order-2">
             {navigation.map((item) => (
               <a key={item.name} href={item.href} target='_blank' className="text-gray-400 hover:text-gray-500">

@@ -1,10 +1,49 @@
-export const Hero = () => {
+import {
+  ArrowPathIcon,
+  CloudArrowUpIcon,
+  Cog6ToothIcon,
+  FingerPrintIcon,
+  LockClosedIcon,
+  ServerIcon,
+} from '@heroicons/react/20/solid'
+
+const features = [
+  {
+    name: 'Push to deploy.',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit aute id magna.',
+    icon: CloudArrowUpIcon,
+  },
+  {
+    name: 'SSL certificates.',
+    description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
+    icon: LockClosedIcon,
+  },
+  {
+    name: 'Simple queues.',
+    description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus.',
+    icon: ArrowPathIcon,
+  },
+  {
+    name: 'Advanced security.',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit aute id magna.',
+    icon: FingerPrintIcon,
+  },
+  {
+    name: 'Powerful API.',
+    description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
+    icon: Cog6ToothIcon,
+  },
+  {
+    name: 'Database backups.',
+    description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. ',
+    icon: ServerIcon,
+  },
+]
+
+export const HeroV2 = () => {
   return (
-    <div className="overflow-hidden sm:py-16">
-      <div className="mx-auto max-w-7xl md:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-8 sm:gap-y-20 lg:grid-cols-2 lg:items-start">
-          <div className="md:px-0 lg:pr-4 lg:pt-4">
-            <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
+    <div className="sm:py-6">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 my-5">
               <h1
                 className="text-center mt-2 text-3xl font-bold tracking-tighter text-gray-900 sm:text-5xl animate-fade-up"
                 style={{ animationDelay: "0.1s", animationFillMode: "backwards" }}
@@ -25,16 +64,13 @@ export const Hero = () => {
                   Kontaktieren Sie uns einfach!<span aria-hidden="true">→</span>
                 </a>
               </p>
-            </div>
-          </div>
-          <div className="sm:px-6 lg:px-0">
-            <img
+      </div>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <img
               src={'/team.jpg'} sizes="50vw" className="w-auto rounded-lg animate-fade-up" alt="Team Foto"
               style={{ animationDelay: "0.5s", animationFillMode: "backwards" }}
             />
-          </div>
         </div>
-      </div>
     </div>
   )
 }
