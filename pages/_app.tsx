@@ -2,12 +2,15 @@ import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { Layout } from '../components/layout'
 import Script from 'next/script'
+import { Provider } from 'react-wrap-balancer'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <Layout>
       <Script src="https://cdn.splitbee.io/sb.js"></Script>
-      <Component {...pageProps} />
+      <Provider>
+        <Component {...pageProps} /> 
+      </Provider>
     </Layout>
   )
 }

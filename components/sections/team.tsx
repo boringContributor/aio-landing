@@ -5,12 +5,12 @@ const people = [
       href: '/patrick.jpg'
     },
     {
-        name: 'Andreas Rauner',
+        name: 'Andreas Mederer',
         role: 'Physiotherapeut',
         href: '/andreas.jpg'
     },
     {
-        name: 'Jana Rauner',
+        name: 'Jana Reiser',
         role: 'Physiotherapeutin',
         href: '/jana.jpg'
     },
@@ -22,9 +22,6 @@ const people = [
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Unser Team</h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-             kurze Teambeschreibung 
-            </p>
           </div>
           <ul
             role="list"
@@ -32,7 +29,7 @@ const people = [
           >
             {people.map((person) => (
               <li key={person.name}>
-                <img className="aspect-square w-full rounded-2xl object-cover" src={person.href} alt={`Team Foto von ${person.name}`} />
+                <img loading="lazy" className="aspect-square w-full rounded-2xl object-cover" src={person.href} alt={`Team Foto von ${person.name}`} />
                 <h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">{person.name}</h3>
                 <p className="text-base leading-7 text-gray-600">{person.role}</p>
               </li>

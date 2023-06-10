@@ -1,61 +1,51 @@
+// @eslint-ignore eslint@next/next/no-img-element
+
+const partners = [
+  {
+    name: '360 Grad Werbung',
+    href: '/partner/360.jpg',
+    redirectTo: 'https://360grad-werbung.de/'
+  },
+  {
+    name: 'Physioteam Lappersdorf',
+    href: '/partner/aok.png',
+    redirectTo: 'https://www.physioteam-lappersdorf.de/'
+  },
+  {
+    name: '360 Grad Werbung',
+    href: '/partner/360.jpg',
+    redirectTo: 'https://360grad-werbung.de/'
+  },
+  {
+    name: 'Idea Werbewelt',
+    href: '/partner/idea.png',
+    redirectTo: 'https://idea-werbewelt.de'
+  }
+]
+
 export const Partner = () => {
-    return ( 
-          <div id="partner" className="grid grid-cols-1 items-center gap-x-8 gap-y-16 lg:grid-cols-2">
-            <div className="mx-auto w-full max-w-xl lg:mx-0">
-              <h2 className="text-3xl font-bold tracking-tight">Unsere Kooperationspartner</h2>
-              <p 
-                className="break-all relative mt-6 leading-8 text-gray-600 sm:max-w-md lg:max-w-none animate-fade-up"
-                >
-                    Cupidatat minim id magna ipsum sint dolor qui. Sunt sit in quis cupidatat mollit aute velit. Et
-                    labore commodo nulla aliqua proident mollit ullamco exercitation tempor. Sint aliqua anim nulla sunt
-                    mollit id pariatur in voluptate cillum.
-               </p>
-            </div>
-            <div className="mx-auto grid w-full max-w-xl grid-cols-2 items-center gap-y-12 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:pl-8">
-              <img
-                className="max-h-12 w-full object-contain object-center"
-                src="/partner/360.jpg"
-                alt="Tuple"
-                width={105}
-                height={48}
-              />
-              <img
-                className="max-h-12 w-full object-contain object-center"
-                src="https://tailwindui.com/img/logos/reform-logo-gray-900.svg"
-                alt="Reform"
-                width={104}
-                height={48}
-              />
-              <img
-                className="max-h-12 w-full object-contain object-center"
-                src="https://tailwindui.com/img/logos/savvycal-logo-gray-900.svg"
-                alt="SavvyCal"
-                width={140}
-                height={48}
-              />
-              <img
-                className="max-h-12 w-full object-contain object-center"
-                src="https://tailwindui.com/img/logos/laravel-logo-gray-900.svg"
-                alt="Laravel"
-                width={136}
-                height={48}
-              />
-              <img
-                className="max-h-12 w-full object-contain object-center"
-                src="https://tailwindui.com/img/logos/transistor-logo-gray-900.svg"
-                alt="Transistor"
+    return (
+        <div className="">
+          <h2 className="text-center text-2xl font-semibold leading-8 text-gray-900">
+            Unsere Kooperationspartner
+          </h2>
+
+          <div className="mx-auto mt-5 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-4 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-4ygr">
+            {
+              partners.map(partner => <img
+                key={partner.name}
+                className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                src={partner.href}
+                alt={partner.name}
                 width={158}
                 height={48}
+                onClick={() => window.open(partner.redirectTo)}
               />
-              <img
-                className="max-h-12 w-full object-contain object-center"
-                src="https://tailwindui.com/img/logos/statamic-logo-gray-900.svg"
-                alt="Statamic"
-                width={147}
-                height={48}
-              />
-            </div>
+              )
+            }
+
           </div>
+        </div>
     )
   }
   

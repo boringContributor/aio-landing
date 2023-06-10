@@ -1,4 +1,5 @@
 import { CheckIcon } from '@heroicons/react/20/solid'
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '../accordion'
 
 const features = [
   {
@@ -12,7 +13,7 @@ const features = [
   },
   {
     name: 'Betriebliches Gesundheitsmanagement (BGM)', 
-    description: 'Sed rerum sunt dignissimos ullam. Iusto iure occaecati voluptate eligendi fugiat sequi.',
+    description: 'Ein nachhaltiges Betriebliches Gesundheitsmanagement in Ihrem Unternehmen zu integrieren ist heutzutage von sehr hohem Stellenwert. Denn nur wenn Ihre MitarbeiterInnen gesund und motiviert sind können sie ihr volles Potential ausschöpfen. Außerdem erhöhen Sie die Zufriedenheit Ihrer Mitarbeiter, vermindern die Anzahl der Arbeitsunfälle und steigern die Attraktivität Ihres Unternehmens. Ein gesundes BGM beinhaltet:ArbeitsschutzGesundheitsschutzBetriebliches Eingliederungsmanagement (BEM)PersonalentwicklungOrganisationsentwicklungBetriebliche Gesundheitsförderung § 20 PräventionIn 7 Handlungsschritten werden wir Ihnen helfen das BGM aufzubauen bzw. zu optimieren, um ein gesundes Umfeld in Ihrem Betrieb zu schaffen.',
   },
   { name: 'Coaching', description: 'Ernährungscoaching, Abnehmen, Personal Training' },
   {
@@ -24,14 +25,40 @@ const features = [
 export const Portfolio = () => {
   return (
     <div id="portfolio">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl lg:mx-0">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Unser Portfolio</h2>
+
+          </div>
+          <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 text-base leading-7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+            {features.map((feature) => (
+                 <Accordion type="multiple"  key={feature.name}>
+                 <AccordionItem value="item-1">
+                   <AccordionTrigger>{feature.name}</AccordionTrigger>
+                   <AccordionContent>
+                   {feature.description}
+                   </AccordionContent>
+                 </AccordionItem>
+               </Accordion>
+              // <div key={feature.name}>
+              //   <dt className="font-semibold text-gray-900">{feature.name}</dt>
+              //   <dd className="mt-1 text-gray-600">{feature.description}</dd>
+              // </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+  )
+}
+
+
+export const PortfolioDeprecated = () => {
+  return (
+    <div id="portfolio">
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           <div>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Unser Portfolio</p>
-            <p className="break-all mt-6 text-base leading-7 text-gray-600">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste
-              dolor cupiditate blanditiis ratione.
-            </p>
           </div>
           <dl className="col-span-2 grid grid-cols-1 gap-x-8 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:gap-y-16">
             {features.map((feature) => (
