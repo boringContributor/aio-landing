@@ -20,7 +20,7 @@ const people = [
   
   export const Team = () => {
     return (
-      <div id="team">
+      <section id="team">
         <div className="mx-auto max-w-7xl">
           <Title title='Unser Team' />
           <ul
@@ -36,7 +36,7 @@ const people = [
             ))}
           </ul>
         </div>
-      </div>
+      </section>
     )
   }
   

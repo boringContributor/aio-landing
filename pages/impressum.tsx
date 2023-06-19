@@ -1,6 +1,6 @@
 export default function Impressum() {
     return (
-        <div className=" px-6 py-8 lg:px-8">
+        <div className="px-6 py-8 lg:px-8">
             <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
                 <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Impressum</h1>
                 <p className="mt-6 text-xl leading-8 break-all">

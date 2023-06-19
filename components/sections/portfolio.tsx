@@ -24,7 +24,7 @@ const features = [
 
 export const Portfolio = () => {
   return (
-    <div id="portfolio">
+    <section id="portfolio" aria-label='Portfolio'>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <Title title='Unser Portfolio' />
           <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 text-base leading-7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2">
@@ -44,7 +44,7 @@ export const Portfolio = () => {
             ))}
           </dl>
         </div>
-      </div>
+      </section>
   )
 }
 

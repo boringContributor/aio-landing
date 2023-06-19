@@ -5,7 +5,7 @@ import { Title } from "../title"
 const partners = [
   {
     name: '360 Grad Werbung',
-    href: '/partner/360.jpg',
+    href: '/partner/360.png',
     redirectTo: 'https://360grad-werbung.de/'
   },
   {

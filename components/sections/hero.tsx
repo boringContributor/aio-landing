@@ -2,7 +2,7 @@ import Balancer from 'react-wrap-balancer'
 
 export const Hero = () => {
   return (
-    <div className="sm:py-6">
+    <section className="sm:py-6" aria-label='Einleitung'>
       <div className="mx-auto max-w-7xl px-6 lg:px-8 my-5">
               <h1
                 className="text-center mt-2 text-3xl font-bold tracking-tighter text-gray-900 sm:text-5xl animate-fade-up"
@@ -33,6 +33,6 @@ export const Hero = () => {
               style={{ animationDelay: "0.5s", animationFillMode: "backwards" }}
             />
         </div>
-    </div>
+    </section>
   )
 }
