@@ -1,6 +1,6 @@
 // @eslint-ignore eslint@next/next/no-img-element
 
-import { Title } from "../title"
+import { Container } from "../container"
 
 const partners = [
   {
@@ -27,9 +27,7 @@ const partners = [
 
 export const Partner = () => {
   return (
-    <div>
-
-      <Title title='Unsere Kooperationspartner' />
+    <Container id='partner' title="Unsere Kooperationspartner">
       <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-4 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-4">
         {
           partners.map(partner => <img
@@ -45,6 +43,6 @@ export const Partner = () => {
         }
 
       </div>
-    </div>
+    </Container>
   )
 }

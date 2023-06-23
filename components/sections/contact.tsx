@@ -1,11 +1,10 @@
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
-import { Title } from '../title'
+import { Container } from '../container'
 
 export const Contact = () => {
   return (
-    <section id='kontakt' aria-label='Kontakt' className="mx-auto max-w-7xl px-6 lg:px-8 my-5">
-        <Title title='Kontakt' />
-        <div className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 sm:grid-cols-2 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+    <Container id='kontakt' title="Kontakt">
+        <div className="mx-auto  grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 sm:grid-cols-2 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           <div>
               <dt className="flex-none">
                   <span className="sr-only">Address</span>
@@ -40,6 +39,6 @@ export const Contact = () => {
                 </dd>
           </div>
         </div>
-      </section>
+      </Container>
   )
 }
