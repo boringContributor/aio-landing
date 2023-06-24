@@ -1,5 +1,6 @@
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '../accordion'
 import { Container } from '../container'
+import { SimpleLayout } from '../simple-layout'
 
 const features = [
   {
@@ -24,7 +25,7 @@ const features = [
 
 export const Portfolio = () => {
   return (
-    <Container id='portfolio' title="Portfolio" >
+    <SimpleLayout title='Portfolio' intro='Wir bieten eine vielzahl an Leistungen an etc'>
           <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 text-base leading-7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             {features.map((feature) => (
                  <Accordion type="multiple" key={feature.name}>
@@ -41,7 +42,7 @@ export const Portfolio = () => {
               // </div>
             ))}
           </dl>
-      </Container>
+    </SimpleLayout>
   )
 }
 

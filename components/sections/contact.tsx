@@ -1,9 +1,9 @@
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
-import { Container } from '../container'
+import { SimpleLayout } from '../simple-layout'
 
 export const Contact = () => {
   return (
-    <Container id='kontakt' title="Kontakt">
+    <SimpleLayout title='Kontakt'>
         <div className="mx-auto  grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 sm:grid-cols-2 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           <div>
               <dt className="flex-none">
@@ -39,6 +39,6 @@ export const Contact = () => {
                 </dd>
           </div>
         </div>
-      </Container>
+      </SimpleLayout>
   )
 }
