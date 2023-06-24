@@ -1,12 +1,13 @@
 type SimpleLayoutProps = {
     title: string,
     intro?: string,
+    id: string,
     children: React.ReactNode
 }
 
-export const SimpleLayout = ({ title, intro, children }: SimpleLayoutProps) => {
+export const SimpleLayout = ({ title, intro, children, id }: SimpleLayoutProps) => {
     return (
-        <div className="mt-16 sm:mt-32">
+        <section id={id} className="mt-16 sm:mt-32">
             <header className="max-w-2xl">
                 <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl text-center sm:text-left">
                     {title}
@@ -16,6 +17,6 @@ export const SimpleLayout = ({ title, intro, children }: SimpleLayoutProps) => {
                 </p>}
             </header>
             <div className="mt-16 sm:mt-20">{children}</div>
-        </div>
+        </section>
     )
 }

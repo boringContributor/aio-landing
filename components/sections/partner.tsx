@@ -70,7 +70,7 @@ const projects = [
         logo: logoPt,
     },
     {
-        name: 'Aok Bayern',
+        name: 'AOK Bayern',
         description:
             'The schematics for the first rocket I designed that successfully made it to orbit.',
         link: { href: 'https://www.aok.de/pk/bayern/', label: 'aok.de/pk/bayern' },
@@ -89,6 +89,7 @@ export const Partner = () => {
                 />
             </Head>
             <SimpleLayout
+                id="partner"
                 title="Unsere Kooperationspartner"
                 intro="Wir arbeiten mit verschiedenen Kooperationspartnern zusammen. etc. etc.s"
             >
