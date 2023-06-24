@@ -26,20 +26,16 @@ const features = [
 export const Portfolio = () => {
   return (
     <SimpleLayout id="portfolio" title='Portfolio' intro='Wir bieten eine vielzahl an Leistungen an etc'>
-          <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 text-base leading-7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+          <dl className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-4 gap-y-4 text-base leading-7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             {features.map((feature) => (
                  <Accordion type="multiple" key={feature.name}>
                  <AccordionItem value={feature.name}>
                    <AccordionTrigger >{feature.name}</AccordionTrigger>
                    <AccordionContent>
-                   {feature.description}
+                    {feature.description}
                    </AccordionContent>
                  </AccordionItem>
                </Accordion>
-              // <div key={feature.name}>
-              //   <dt className="font-semibold text-gray-900">{feature.name}</dt>
-              //   <dd className="mt-1 text-gray-600">{feature.description}</dd>
-              // </div>
             ))}
           </dl>
     </SimpleLayout>
