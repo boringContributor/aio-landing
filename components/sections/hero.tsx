@@ -1,6 +1,11 @@
 import Balancer from 'react-wrap-balancer'
+import { RichText, RichTextProps } from '@graphcms/rich-text-react-renderer';
 
-export const Hero = () => {
+type HeroProps = {
+   description: RichTextProps['content'];
+   image: string;
+}
+export const Hero = (props: HeroProps) => {
   return (
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2">
@@ -15,23 +20,12 @@ export const Hero = () => {
                 className="max-w-xl animate-fade-up" 
                 style={{ animationDelay: "0.3s", animationFillMode: "backwards" }}
               >
-                <p className="mt-6 text-center">
-                <Balancer>
-                  Als Inhaber einer Physiotherapie Praxis dürfen wir jeden Tag erfahren, dass die Ressource Mensch unser wichtigstes Gut ist. Gesund zu bleiben und sich persönlich oder auch als Unternehmen weiter zu entwickeln ist heutzutage unablässig. 
-                  </Balancer>
-                </p>
-                <p className="mt-8 text-center">
-                <Balancer>
-                  Bei uns ist der Name Programm. Mit unserer langjährigen Erfahrung und einem großen Netzwerk an hervorragenden Therapeuten und Coaches können wir den Bereich Gesundheit mit all seinen Facetten sei es Fitness, Entspannung, Bewegung, Ernährung oder Life Style bedienen.
-                 </Balancer>
-                </p>
-                <p className="mt-8 text-center">
-                      <Balancer>
-                        Getreu unserem Motto <span className="text-red-700">Ihre Gesundheit, unsere Motivation</span> möchten wir Ihnen gerne helfen mehr Gesundheit, Leistungsfähigkeit und Bewusstsein in Ihr Leben zu integrieren.
-                        Deshalb finden Sie in unserem vielfältigen Portfolio verschiedenste Möglichkeiten für Ihre Firma, Ihren Verein oder für Sie selbst.
-                        Bestimmt passt eines unserer Angebote zu Ihnen.  
-                      </Balancer>
-                </p>
+                <RichText 
+                  renderers={{
+                    p: ({ children }) => <p className="mt-6 text-center"><Balancer>{children}</Balancer></p>,
+                  }}
+                  content={props.description}
+                />
               </div>
             </div>
           </div>
@@ -42,7 +36,7 @@ export const Hero = () => {
               <img
                 className="absolute inset-0 h-full w-full object-cover "
                 
-                src={'/team.jpg'}
+                src={props.image}
                 alt={'Team Foto'}
               />
           </div>

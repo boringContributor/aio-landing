@@ -1,21 +1,37 @@
-import { Contact } from "../components/sections/contact";
+import { ContactSection } from "../components/sections/contact";
 import { Hero } from "../components/sections/hero";
-import { Partner } from "../components/sections/partner";
-import { Portfolio } from "../components/sections/portfolio";
-import { Team } from "../components/sections/team";
+import { PartnerSection } from "../components/sections/partner";
+import { PortfolioSection } from "../components/sections/portfolio";
+import { TeamSection } from "../components/sections/team";
 import { Images } from "../components/sections/images";
 import { Blog } from "../components/sections/blog";
+import { getCmsData } from "../lib/api";
+import { InferGetServerSidePropsType } from "next";
 
-export default function Page() {
+export const getServerSideProps = async () => {
+  const resp = await getCmsData();
+
+  return {
+    props: {
+      hero: resp.introductions[0],
+      images: resp.images[0].list,
+      team: resp.teams,
+      portfolio: resp.portfolios,
+      contact: resp.contacts[0],
+      partner: resp.partners,
+    }
+  }
+}
+export default function Page(ssr: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
-      <Hero />
-      <Images />
+      <Hero image={ssr.hero.introductionImage.url} description={ssr.hero.introduction.raw} />
+      {/* <Images urls={ssr.images.map(img => img.url) } /> */}
       <Blog />
-      <Team />
-      <Portfolio />
-      <Partner />
-      <Contact />
+      <TeamSection team={ssr.team}/>
+      <PortfolioSection portfolio={ssr.portfolio}/>
+      <PartnerSection partner={ssr.partner} />
+      <ContactSection contact={ssr.contact}/>
     </>
   )
 }
