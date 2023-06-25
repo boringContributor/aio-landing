@@ -1,5 +1,5 @@
 type SimpleLayoutProps = {
-    title: string,
+    title?: string,
     intro?: string,
     id: string,
     children: React.ReactNode
@@ -8,14 +8,14 @@ type SimpleLayoutProps = {
 export const SimpleLayout = ({ title, intro, children, id }: SimpleLayoutProps) => {
     return (
         <section id={id} className="mt-16 sm:mt-24">
-            <header className="max-w-2xl pt-10">
-                <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl text-center sm:text-left">
+            {(title || intro) && <header className="max-w-2xl pt-10">
+               {title && <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl text-center sm:text-left">
                     {title}
-                </h1>
+                </h1>}
                {intro && <p className="mt-6 text-base text-zinc-600">
                     {intro}
                 </p>}
-            </header>
+            </header>}
             <div className="mt-16 sm:mt-20">{children}</div>
         </section>
     )

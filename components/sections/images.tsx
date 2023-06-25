@@ -1,12 +1,13 @@
 import clsx from "clsx"
 import Image from "next/image"
-import image1 from '../../lib/image-1.jpg' // TODO fetch from CMS
+import image1 from '../../public/team.jpg' // TODO fetch from CMS
+import { SimpleLayout } from "../simple-layout"
 
 export const Images = () => {
     const rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
   
     return (
-      <div>
+      <SimpleLayout id="bilder">
         <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
           {[image1, image1, image1, image1, image1].map((image, imageIndex) => (
             <div
@@ -25,6 +26,6 @@ export const Images = () => {
             </div>
           ))}
         </div>
-      </div>
+      </SimpleLayout>
     )
   }

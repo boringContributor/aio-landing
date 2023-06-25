@@ -1,4 +1,3 @@
-import { Container } from "../container"
 import { SimpleLayout } from "../simple-layout"
 
 const people = [

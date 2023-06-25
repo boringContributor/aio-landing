@@ -1,5 +1,4 @@
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '../accordion'
-import { Container } from '../container'
 import { SimpleLayout } from '../simple-layout'
 
 const features = [
