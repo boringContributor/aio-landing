@@ -41,7 +41,7 @@ export function BlogLayout({
           <div className="mx-auto max-w-2xl">
             <button
             type="button"
-            onClick={() => router.back()}
+            onClick={() => router.push("/#aktuelles")}
             aria-label="Go back to main"
             className="group mb-8 flex h-10 w-10 items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition  lg:absolute lg:-left-5 lg:-mt-2 lg:mb-0 xl:-top-1.5 xl:left-0 xl:mt-0"
             >
@@ -53,7 +53,6 @@ export function BlogLayout({
                   {meta.title}
                 </h1>
                 <time
-                  dateTime={meta.date}
                   className="order-first flex items-center text-base text-zinc-500"
                 >
                   <span className="h-4 w-0.5 rounded-full bg-zinc-500" />

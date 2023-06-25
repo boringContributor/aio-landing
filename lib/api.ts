@@ -1,5 +1,6 @@
 import { RichTextProps } from '@graphcms/rich-text-react-renderer';
 import { gql, request } from 'graphql-request';
+import { createSlug } from './utils';
 
 type ImageMeta = {
     list: Image[]
@@ -31,6 +32,7 @@ export type Team = {
 
 export type TextInput = {
     raw: RichTextProps['content'];
+    text: string;
 }
 
 export type Partner = {
@@ -40,6 +42,12 @@ export type Partner = {
     logo: Image;
 }
 
+export type Article = {
+    title: string;
+    description: TextInput;
+    titleBild: Image;
+    createdAt: string;
+}
 
 type MainQueryResult = {
     introductions: Introduction[]
@@ -48,6 +56,7 @@ type MainQueryResult = {
     portfolios: Portfolio[]
     contacts: Contact[]
     partners: Partner[]
+    articles: Article[]
 }
 
 const GET_MAIN_CONTENT_QUERY = gql`
@@ -90,6 +99,17 @@ const GET_MAIN_CONTENT_QUERY = gql`
                     url
                 }
             }
+            articles {
+                title
+                createdAt
+                description {
+                    raw
+                    text
+                }
+                titleBild {
+                    url
+                }
+            }
     }`;
 
 export const getCmsData = async () => {
@@ -97,3 +117,35 @@ export const getCmsData = async () => {
 
     return data;
 }
+
+export const getSlugsForArticles = async () => {
+    const GET_SLUGS = gql`
+    query {
+        articles {
+            title
+        }
+    }`;
+
+    const data = await request<{ articles: Article[]}>(process.env.HYGRAPH_URL as string, GET_SLUGS);
+    return data.articles.map(article => createSlug(article.title))
+}
+
+export const getAllArticles = async () => {
+    const GET_ARTICLES = gql`
+    query {
+        articles {
+            title
+            createdAt
+            description {
+                raw
+                text
+            }
+            titleBild {
+                url
+            }
+        }
+    }`;
+
+    const data = await request<{ articles: Article[]}>(process.env.HYGRAPH_URL as string, GET_ARTICLES);
+    return data.articles;
+};

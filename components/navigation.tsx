@@ -12,15 +12,15 @@ type NavigationProps = {
 }
 
 const navigation = [
-  { name: 'Aktuelles', href: '#aktuelles' },
-  { name: 'Team', href: '#team' },
-  { name: 'Partner', href: '#partner' },
-  { name: 'Portfolio', href: '#portfolio' },
-  { name: 'Kontakt', href: '#kontakt' },
+  { name: 'Aktuelles', href: '/#aktuelles' },
+  { name: 'Team', href: '/#team' },
+  { name: 'Partner', href: '/#partner' },
+  { name: 'Portfolio', href: '/#portfolio' },
+  { name: 'Kontakt', href: '/#kontakt' },
 ]
 
 const NavItem = ({ href, children }: NavigationProps) => {
-  let isActive = useRouter().pathname === href
+  const isActive = useRouter().pathname === href
 
   return (
     <li>

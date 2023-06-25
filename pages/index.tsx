@@ -19,6 +19,7 @@ export const getServerSideProps = async () => {
       portfolio: resp.portfolios,
       contact: resp.contacts[0],
       partner: resp.partners,
+      articles: resp.articles
     }
   }
 }
@@ -27,7 +28,7 @@ export default function Page(ssr: InferGetServerSidePropsType<typeof getServerSi
     <>
       <Hero image={ssr.hero.introductionImage.url} description={ssr.hero.introduction.raw} />
       {/* <Images urls={ssr.images.map(img => img.url) } /> */}
-      <Blog />
+      <Blog articles={ssr.articles} />
       <TeamSection team={ssr.team}/>
       <PortfolioSection portfolio={ssr.portfolio}/>
       <PartnerSection partner={ssr.partner} />
