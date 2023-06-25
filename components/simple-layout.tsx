@@ -7,8 +7,8 @@ type SimpleLayoutProps = {
 
 export const SimpleLayout = ({ title, intro, children, id }: SimpleLayoutProps) => {
     return (
-        <section id={id} className="mt-16 sm:mt-32">
-            <header className="max-w-2xl">
+        <section id={id} className="mt-16 sm:mt-24">
+            <header className="max-w-2xl pt-10">
                 <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl text-center sm:text-left">
                     {title}
                 </h1>
