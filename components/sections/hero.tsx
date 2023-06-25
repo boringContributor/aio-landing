@@ -9,7 +9,10 @@ export const Hero = () => {
               >
                 <span className="text-red-800">A</span>ll <span className="text-red-800">I</span>n <span className="text-red-800">O</span>ne Gesundheitsmanagement
               </h1>
-              <div className="max-w-xl">
+              <div 
+                className="max-w-xl animate-fade-up" 
+                style={{ animationDelay: "0.3s", animationFillMode: "backwards" }}
+              >
                 <p className="mt-6">
                   Als Inhaber einer Physiotherapie Praxis dürfen wir jeden Tag erfahren, dass die Ressource Mensch unser wichtigstes Gut ist. Gesund zu bleiben und sich persönlich oder auch als Unternehmen weiter zu entwickeln ist heutzutage unablässig. 
                 </p>
@@ -24,9 +27,13 @@ export const Hero = () => {
               </div>
             </div>
           </div>
-            <div className="relative overflow-hidden rounded-3xl px-6 pb-9 pt-64 shadow-2xl sm:px-12 lg:max-w-lg lg:px-8 lg:pb-8 xl:px-10 xl:pb-10">
+            <div 
+              className="animate-fade-up relative overflow-hidden rounded-3xl px-6 pb-9 pt-64 shadow-2xl sm:px-12 lg:max-w-lg lg:px-8 lg:pb-8 xl:px-10 xl:pb-10"
+              style={{ animationDelay: "0.5s", animationFillMode: "backwards" }}
+            >
               <img
                 className="absolute inset-0 h-full w-full object-cover "
+                
                 src={'/team.jpg'}
                 alt={'Team Foto'}
               />
