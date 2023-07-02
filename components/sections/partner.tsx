@@ -59,7 +59,6 @@ export const PartnerSection = (props: PartnerProps) => {
             <SimpleLayout
                 id="partner"
                 title="Unsere Kooperationspartner"
-                intro="Wir arbeiten mit verschiedenen Kooperationspartnern zusammen. etc. etc.s"
             >
                 <ul
                     role="list"

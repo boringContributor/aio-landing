@@ -7,6 +7,7 @@ import { Images } from "../components/sections/images";
 import { Blog } from "../components/sections/blog";
 import { getCmsData } from "../lib/api";
 import { InferGetServerSidePropsType } from "next";
+import { FeatureOverview } from "../components/sections/feature-overview";
 
 export const getServerSideProps = async () => {
   const resp = await getCmsData();
@@ -30,7 +31,7 @@ export default function Page(ssr: InferGetServerSidePropsType<typeof getServerSi
       {/* <Images urls={ssr.images.map(img => img.url) } /> */}
       <Blog articles={ssr.articles} />
       <TeamSection team={ssr.team}/>
-      <PortfolioSection portfolio={ssr.portfolio}/>
+      <FeatureOverview portfolio={ssr.portfolio}/>
       <PartnerSection partner={ssr.partner} />
       <ContactSection contact={ssr.contact}/>
     </>

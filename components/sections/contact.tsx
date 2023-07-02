@@ -20,15 +20,15 @@ export const ContactSection = (props: ContactProps) => {
               </dd>
           </div>
           <div>
-          <dt className="flex-none">
+          {props.contact.telefon && <><dt className="flex-none">
                   <span className="sr-only">Telephone</span>
                   <PhoneIcon className="h-7 w-6 text-red-900" aria-hidden="true" />
-                </dt>
+          </dt>
                 <dd>
                   <a className="hover:text-red-900" href={props.contact.telefon}>
                     {props.contact.telefon}
                   </a>
-                </dd>
+                </dd></>}
           </div>
           <div>
           <dt className="flex-none">

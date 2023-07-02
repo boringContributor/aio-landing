@@ -14,7 +14,7 @@ export const Hero = (props: HeroProps) => {
               <h1 className="text-center mt-2 sm:text-4xl text-3xl font-semibold tracking-tighter text-gray-900 animate-fade-up"
                   style={{ animationDelay: "0.1s", animationFillMode: "backwards" }}
               >
-                <span className="text-red-800">A</span>ll <span className="text-red-800">I</span>n <span className="text-red-800">O</span>ne Gesundheitsmanagement
+                <span className="text-red-800">a</span>ll <span className="text-red-800">i</span>n <span className="text-red-800">o</span>ne Gesundheitsmanagement
               </h1>
               <div 
                 className="max-w-xl animate-fade-up" 
