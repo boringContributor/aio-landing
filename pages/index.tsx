@@ -27,11 +27,11 @@ export const getServerSideProps = async () => {
 export default function Page(ssr: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
-      <Hero image={ssr.hero.introductionImage.url} description={ssr.hero.introduction.raw} />
-      {/* <Images urls={ssr.images.map(img => img.url) } /> */}
-      <Blog articles={ssr.articles} />
+      <Hero image={ssr.hero.introductionImage?.url} description={ssr.hero.introduction.raw} />
       <TeamSection team={ssr.team}/>
       <FeatureOverview portfolio={ssr.portfolio}/>
+      {/* <Images urls={ssr.images.map(img => img.url) } /> */}
+      <Blog articles={ssr.articles}/>
       <PartnerSection partner={ssr.partner} />
       <ContactSection contact={ssr.contact}/>
     </>

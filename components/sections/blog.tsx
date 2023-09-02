@@ -8,7 +8,7 @@ type BlogProps = {
 }
 export const Blog = (props: BlogProps) => {
   return (
-    <SimpleLayout title="Aktuelles" id="aktuelles">
+    <SimpleLayout title="Aktuelles" id="aktuelles" show={props.articles.length > 0}>
       <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
         {props.articles.map((article) => (
           <article key={article.title} className="flex flex-col items-start justify-between">

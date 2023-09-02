@@ -1,14 +1,16 @@
 import Balancer from 'react-wrap-balancer'
 import { RichText, RichTextProps } from '@graphcms/rich-text-react-renderer';
+import clsx from 'clsx';
 
 type HeroProps = {
    description: RichTextProps['content'];
-   image: string;
+   image: string | null;
 }
 export const Hero = (props: HeroProps) => {
   return (
       <div className="mx-auto max-w-7xl">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+        <div className={clsx("mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none", 
+        props.image ? "lg:grid-cols-2" : "" )}>
           <div>
             <div className="text-base leading-7 text-gray-700 lg:max-w-lg">
               <h1 className="text-center mt-2 sm:text-4xl text-3xl font-semibold tracking-tighter text-gray-900 animate-fade-up"
@@ -29,7 +31,7 @@ export const Hero = (props: HeroProps) => {
               </div>
             </div>
           </div>
-            <div 
+          {props.image ? <div 
               className="animate-fade-up relative overflow-hidden rounded-3xl px-6 pb-9 pt-64 shadow-2xl sm:px-12 lg:max-w-lg lg:px-8 lg:pb-8 xl:px-10 xl:pb-10"
               style={{ animationDelay: "0.5s", animationFillMode: "backwards" }}
             >
@@ -39,7 +41,7 @@ export const Hero = (props: HeroProps) => {
                 src={props.image}
                 alt={'Team Foto'}
               />
-          </div>
+          </div> : null}
         </div>
       </div>
   )

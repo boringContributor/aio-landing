@@ -28,6 +28,7 @@ export type Portfolio = {
 export type Team = {
     name: string;
     portrait: Image
+    order: number;
 }
 
 export type TextInput = {
@@ -79,6 +80,7 @@ const GET_MAIN_CONTENT_QUERY = gql`
                 portrait {
                     url
                 }
+                order
             }
             portfolios {
                 title
