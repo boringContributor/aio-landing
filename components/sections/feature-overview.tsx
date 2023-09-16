@@ -20,6 +20,23 @@ export const FeatureOverview = (props: PortfolioProps) => {
  })
   return (
     <SimpleLayout title="Portfolio" id="portfolio">
+
+          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3 lg:gap-y-16">
+      {
+        tabs.map((feature) => {
+          return       <div key={feature.title} className="relative">
+          <dt className="text-lg font-semibold leading-7 text-gray-900">
+            {feature.title}
+          </dt>
+          <dd className="mt-2 text-base leading-7 text-gray-600"><RichText content={feature.description.raw}/></dd>
+        </div>
+        })
+      }
+      </dl>
+
+
+{/*       
+
           <Tab.Group as="div" className="mt-4">
             <div className="flex overflow-x-auto sm:mx-0">
               <div className="flex-auto border-b border-gray-200 px-4 sm:px-0">
@@ -55,7 +72,7 @@ export const FeatureOverview = (props: PortfolioProps) => {
                 </Tab.Panel>
               ))}
             </Tab.Panels>
-          </Tab.Group>
+          </Tab.Group> */}
         </SimpleLayout>
   )
 }
