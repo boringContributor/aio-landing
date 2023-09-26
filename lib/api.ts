@@ -23,6 +23,7 @@ export type Contact = {
 export type Portfolio = {
     title: string;
     description: TextInput;
+    order: number;
 }
 
 export type Team = {
@@ -87,6 +88,7 @@ const GET_MAIN_CONTENT_QUERY = gql`
                 description {
                     raw
                 }
+                order
             }
             contacts {
                 addresse

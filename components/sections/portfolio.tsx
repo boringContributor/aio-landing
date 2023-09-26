@@ -13,7 +13,7 @@ export const PortfolioSection = (props: PortfolioProps) => {
   return (
     <SimpleLayout id="portfolio" title='Portfolio'>
           <dl className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-4 gap-y-4 text-base leading-7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-            {props.portfolio.map((feature) => (
+            {props.portfolio.sort((a, z) => a.order - z.order).map((feature) => (
                  <Accordion type="multiple" key={feature.title}>
                  <AccordionItem value={feature.title}>
                    <AccordionTrigger >{feature.title}</AccordionTrigger>

@@ -23,13 +23,18 @@ export function toGermanDate(date: string, options: Intl.DateTimeFormatOptions) 
     return new Intl.DateTimeFormat("de-DE", options).format(new Date(date))
 }
 
+const MOBILE_BREAKPOINT = 768;
+
 
 export const useIsMobile = () => {
-  if (typeof window === 'undefined') {
-    return false;
-  }
-
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(() => {
+    // Initialize the width with window.innerWidth if window is available
+    if (typeof window !== 'undefined') {
+      return window.innerWidth;
+    }
+    // Return a default width for server-side rendering
+    return MOBILE_BREAKPOINT + 1; // Adjust this value as needed
+  });
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
   };
@@ -41,5 +46,9 @@ export const useIsMobile = () => {
     };
   }, []);
 
-  return width <= 768;
+  if (typeof window === 'undefined') {
+    return false;
+  }
+
+  return width <= MOBILE_BREAKPOINT;
 };
