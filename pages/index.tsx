@@ -17,7 +17,7 @@ export const getServerSideProps = async () => {
       hero: resp.introductions[0],
       images: resp.images[0].list,
       team: resp.teams,
-      portfolio: resp.portfolios,
+      portfolio: resp.portfolios.sort((a, b) => a.order - b.order),
       contact: resp.contacts[0],
       partner: resp.partners,
       articles: resp.articles
