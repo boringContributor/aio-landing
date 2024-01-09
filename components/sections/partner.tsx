@@ -46,6 +46,14 @@ Card.Description = function CardDescription({ children }: { children?: React.Rea
 type PartnerProps = {
     partner: Partner[]
 }
+const TEMP_TK = {
+    description: '',
+    logo: {
+        url: '/tk.png',
+    },
+    name: 'Techniker Krankenkasse',
+    website: 'https://www.tk.de'
+}
 export const PartnerSection = (props: PartnerProps) => {
     return (
         <>
@@ -83,6 +91,23 @@ export const PartnerSection = (props: PartnerProps) => {
                             </p>
                         </Card>
                     ))}
+                    <Card as="li">
+                            <div className="relative z-10 flex items-center justify-center">
+                                <img
+                                    src={TEMP_TK.logo.url}
+                                    alt={TEMP_TK.name}
+                                    className="max-h-12 w-full object-contain"
+                                />
+                            </div>
+                            <h2 className="mt-6 text-base font-semibold text-zinc-800 text-center sm:text-left">
+                                <Card.Link href={TEMP_TK.website}>{TEMP_TK.name}</Card.Link>
+                            </h2>
+                            {TEMP_TK.description && <Card.Description>{TEMP_TK.description}</Card.Description>}
+                            <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-red-500 justify-center">
+                                <LinkIcon className="h-5 w-5 flex-none" onClick={() => window.open(TEMP_TK.website)} />
+                                <span className="ml-2">{TEMP_TK.website.split('www.')[1]}</span>
+                            </p>
+                        </Card>
                 </ul>
             </SimpleLayout>
         </>
