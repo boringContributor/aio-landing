@@ -96,7 +96,7 @@ export const PartnerSection = (props: PartnerProps) => {
                                 <img
                                     src={TEMP_TK.logo.url}
                                     alt={TEMP_TK.name}
-                                    className="max-h-12 w-full object-contain"
+                                    className="max-h-16 w-full object-contain"
                                 />
                             </div>
                             <h2 className="mt-6 text-base font-semibold text-zinc-800 text-center sm:text-left">
