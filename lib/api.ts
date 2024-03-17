@@ -20,7 +20,16 @@ export type Contact = {
     email: string;
 }
 
-export type Portfolio = {
+export type Course = {
+    id: string;
+    title: string;
+    people: Image[];
+    description: TextInput;
+    order: number;
+}
+
+export type Presentation = {
+    id: string;
     title: string;
     description: TextInput;
     order: number;
@@ -29,11 +38,13 @@ export type Portfolio = {
 export type Team = {
     name: string;
     portrait: Image
+    description: TextInput;
     order: number;
 }
 
 export type TextInput = {
     raw: RichTextProps['content'];
+    html: string;
     text: string;
 }
 
@@ -55,14 +66,22 @@ type MainQueryResult = {
     introductions: Introduction[]
     images: ImageMeta[]
     teams: Team[]
-    portfolios: Portfolio[]
+    courses: Course[]
     contacts: Contact[]
     partners: Partner[]
     articles: Article[]
+    presentations: Presentation[]
 }
 
 const GET_MAIN_CONTENT_QUERY = gql`
         query {
+            presentations {
+                id
+                title
+                description {
+                    raw
+                }
+            }
             introductions {
                 introductionImage {
                     url
@@ -81,10 +100,17 @@ const GET_MAIN_CONTENT_QUERY = gql`
                 portrait {
                     url
                 }
+                description {
+                    raw
+                }
                 order
             }
-            portfolios {
+            courses {
+                id
                 title
+                people {
+                    url
+                }
                 description {
                     raw
                 }
@@ -118,7 +144,6 @@ const GET_MAIN_CONTENT_QUERY = gql`
 
 export const getCmsData = async () => {
     const data = await request<MainQueryResult>(process.env.HYGRAPH_URL as string, GET_MAIN_CONTENT_QUERY);
-
     return data;
 }
 
@@ -130,7 +155,7 @@ export const getSlugsForArticles = async () => {
         }
     }`;
 
-    const data = await request<{ articles: Article[]}>(process.env.HYGRAPH_URL as string, GET_SLUGS);
+    const data = await request<{ articles: Article[] }>(process.env.HYGRAPH_URL as string, GET_SLUGS);
     return data.articles.map(article => createSlug(article.title))
 }
 
@@ -150,6 +175,57 @@ export const getAllArticles = async () => {
         }
     }`;
 
-    const data = await request<{ articles: Article[]}>(process.env.HYGRAPH_URL as string, GET_ARTICLES);
+    const data = await request<{ articles: Article[] }>(process.env.HYGRAPH_URL as string, GET_ARTICLES);
     return data.articles;
 };
+
+export const getArticleById = async (id: string) => {
+
+    const GET_ARTICLE_BY_ID = gql`
+        query GetArticleById($id: ID!) {
+            portfolio(where: {id: $id}) { 
+                title
+                description {
+                    raw
+                }
+                order
+            }
+        }`;
+
+    const data = await request<{ portfolio: Article }>(process.env.HYGRAPH_URL as string, GET_ARTICLE_BY_ID, { id });
+
+    return data.portfolio;
+}
+
+export const getPresentations = async () => {
+    const GET_PRESENTATIONS = gql`
+    query {
+        presentations {
+            title
+            description {
+                raw
+            }
+        }
+    }`;
+
+    const data = await request<{ presentations: Presentation[] }>(process.env.HYGRAPH_URL as string, GET_PRESENTATIONS);
+    return data.presentations;
+}
+
+export const getPresentationById = async (id: string) => {
+
+    const GET_PRESENTATION_BY_ID = gql`
+            query GetCourseById($id: ID!) {
+                presentation(where: {id: $id}) { 
+                    id
+                    title
+                    description {
+                        raw
+                    }
+                }
+            }`;
+
+    const data = await request<{ presentation: Presentation }>(process.env.HYGRAPH_URL as string, GET_PRESENTATION_BY_ID, { id });
+
+    return data.presentation;
+}

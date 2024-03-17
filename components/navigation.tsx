@@ -15,7 +15,8 @@ const navigation = [
   { name: 'Aktuelles', href: '/#aktuelles' },
   { name: 'Team', href: '/#team' },
   { name: 'Partner', href: '/#partner' },
-  { name: 'Portfolio', href: '/#portfolio' },
+  { name: 'Kurse', href: '/#kurse' },
+  { name: 'Vorträge', href: '/#vortrag'},
   { name: 'Kontakt', href: '/#kontakt' },
 ]
 
