@@ -55,7 +55,7 @@ type MainQueryResult = {
     introductions: Introduction[]
     images: ImageMeta[]
     teams: Team[]
-    portfolios: Portfolio[]
+    presentations: Portfolio[]
     contacts: Contact[]
     partners: Partner[]
     articles: Article[]
@@ -83,12 +83,11 @@ const GET_MAIN_CONTENT_QUERY = gql`
                 }
                 order
             }
-            portfolios {
+            presentations {
                 title
                 description {
                     raw
                 }
-                order
             }
             contacts {
                 addresse
