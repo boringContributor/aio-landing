@@ -17,7 +17,7 @@ export default function Courses(props: CourseProps) {
       <div className='grid sm:grid-cols-2 gap-5'>
       {
              props.courses.map((course) => (
-              <Accordion type="multiple">
+              <Accordion key={course.id} type="multiple">
                 <AccordionItem value={course.title}>
                   <AccordionTrigger><Test course={course} /></AccordionTrigger>
                   <AccordionContent>
