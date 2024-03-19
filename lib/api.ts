@@ -62,6 +62,13 @@ export type Article = {
     createdAt: string;
 }
 
+export type Coaching = {
+    id: string;
+    title: string;
+    description: TextInput;
+    image: string
+}
+
 type MainQueryResult = {
     introductions: Introduction[]
     images: ImageMeta[]
@@ -71,15 +78,26 @@ type MainQueryResult = {
     partners: Partner[]
     articles: Article[]
     presentations: Presentation[]
+    coachings: Coaching[]
 }
 
 const GET_MAIN_CONTENT_QUERY = gql`
         query {
+            coachings {
+                id
+                title
+                description {
+                    raw
+                    text
+                }
+                image
+            }
             presentations {
                 id
                 title
                 description {
                     raw
+                    text
                 }
             }
             introductions {
@@ -228,4 +246,21 @@ export const getPresentationById = async (id: string) => {
     const data = await request<{ presentation: Presentation }>(process.env.HYGRAPH_URL as string, GET_PRESENTATION_BY_ID, { id });
 
     return data.presentation;
+}
+
+export const getCoachingById = async (id: string) => {
+        const GET_COACHING_BY_ID = gql`
+                query GetCourseById($id: ID!) {
+                    coaching(where: {id: $id}) { 
+                        title
+                        description {
+                            raw
+                        }
+                        image
+                    }
+                }`;
+    
+        const data = await request<{ coaching: Coaching }>(process.env.HYGRAPH_URL as string, GET_COACHING_BY_ID, { id });
+    
+        return data.coaching;
 }

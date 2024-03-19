@@ -14,9 +14,10 @@ type NavigationProps = {
 const navigation = [
   { name: 'Aktuelles', href: '/#aktuelles' },
   { name: 'Team', href: '/#team' },
-  { name: 'Partner', href: '/#partner' },
   { name: 'Kurse', href: '/#kurse' },
   { name: 'Vorträge', href: '/#vortrag'},
+  { name: 'Coaching', href: '/#coaching' },
+  { name: 'Partner', href: '/#partner' },
   { name: 'Kontakt', href: '/#kontakt' },
 ]
 
@@ -119,7 +120,7 @@ const DesktopNavigation = () => {
       <div className="flex justify-center items-center">
         <Image onClick={() => router.push('/')} src="/total_logo_color.svg" alt="Logo" width={150} height={150} className="h-24 w-auto cursor-pointer" priority/>
       </div>
-      <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur">
+      <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur p-3">
         {
           navigation.map(item => <NavItem key={item.name} href={item.href}>{item.name}</NavItem>)
         }
