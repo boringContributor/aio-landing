@@ -69,6 +69,13 @@ export type Coaching = {
     image: string
 }
 
+export type Workshop = {
+    id: string;
+    title: string;
+    description: TextInput;
+    image: string
+}
+
 type MainQueryResult = {
     introductions: Introduction[]
     images: ImageMeta[]
@@ -79,10 +86,20 @@ type MainQueryResult = {
     articles: Article[]
     presentations: Presentation[]
     coachings: Coaching[]
+    seminars: Workshop[]
 }
 
 const GET_MAIN_CONTENT_QUERY = gql`
         query {
+            seminars {
+                id
+                title
+                description {
+                    raw
+                    text
+                }
+                image
+            }
             coachings {
                 id
                 title
@@ -263,4 +280,21 @@ export const getCoachingById = async (id: string) => {
         const data = await request<{ coaching: Coaching }>(process.env.HYGRAPH_URL as string, GET_COACHING_BY_ID, { id });
     
         return data.coaching;
+}
+
+export const getSeminarById = async (id: string) => {
+    const GET_SEMINAR_BY_ID = gql`
+            query GetSeminarById($id: ID!) {
+                seminar(where: {id: $id}) { 
+                    title
+                    description {
+                        raw
+                    }
+                    image
+                }
+            }`;
+
+    const data = await request<{ seminar: Workshop }>(process.env.HYGRAPH_URL as string, GET_SEMINAR_BY_ID, { id });
+
+    return data.seminar;
 }

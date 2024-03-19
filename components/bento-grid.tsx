@@ -27,13 +27,15 @@ export const BentoGridItem = ({
     title,
     description,
     image,
-    onClick
+    onClick,
+    people
 }: {
     className?: string;
-    title?: string | React.ReactNode;
-    description?: string | React.ReactNode;
+    title: string
+    description: string
     image?: string;
     onClick?: () => void;
+    people?: any[]
 }) => {
     return (
         <div
@@ -44,23 +46,40 @@ export const BentoGridItem = ({
                 image ? "" : "h-min"
             )}
         >
-            {image ? <Header image={image}/> : null}
-            <div className="group-hover/bento:translate-x-2 transition duration-200">
+            {image ? <Header image={image} /> : null}
+            <div className="group-hover/bento:translate-x-2 transition duration-200 space-y-2">
                 <div className="font-sans font-bold text-neutral-600mb-2 mt-2">
-                    {title}
+                    {title?.replace(/\\n/g, '')}
                 </div>
                 <div className="font-sans font-normal text-neutral-600 text-xs line-clamp-2">
-                    {description}
+                    {description?.replace(/\\n/g, '')}
                 </div>
-                <div className="flex divide-x divide-gray-200 cursor-pointer">
-                <Link
-                  href={`/vortrag/${title}`}
-                  className="relative -mr-px inline-flex w-0 flex-1 gap-x-3 rounded-bl-lg border border-transparent py-4 pb-0 text-sm font-semibold text-gray-900"
-                >
-                  <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-                  Mehr erfahren
-                </Link>
-              </div>
+                <div>
+                    <div>
+                        <dl className="flex w-full flex-none justify-between gap-x-8 sm:w-auto">
+                            <div className="flex -space-x-0.5">
+                                <dt className="sr-only">Halter</dt>
+                                {people?.map((p) => (
+                                    <dd key={p.url}>
+                                        <img
+                                            className="h-8 w-8 object-cover rounded-full bg-gray-50 ring-2 ring-white"
+                                            src={p.url}
+                                        />
+                                    </dd>
+                                ))}
+                            </div>
+                        </dl>
+                    </div>
+                    <div className="flex divide-x divide-gray-200">
+                        <div
+                            className="relative -mr-px inline-flex w-0 flex-1 gap-x-3 rounded-bl-lg border border-transparent py-4 pb-0 text-sm font-semibold text-gray-900"
+                        >
+                            <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                            Mehr erfahren
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     );

@@ -8,6 +8,7 @@ import Member from "@/components/sections/members";
 import Courses from "@/components/sections/courses";
 import Presentation from "@/components/sections/presentation";
 import Coaching from "@/components/sections/coaching";
+import Workshop from "@/components/sections/workshop";
 
 export const getServerSideProps = async () => {
   const resp = await getCmsData();
@@ -22,7 +23,8 @@ export const getServerSideProps = async () => {
       partner: resp.partners,
       articles: resp.articles,
       presentations: resp.presentations,
-      coachings: resp.coachings
+      coachings: resp.coachings,
+      seminars: resp.seminars
     }
   }
 }
@@ -32,6 +34,7 @@ export default function Page(ssr: InferGetServerSidePropsType<typeof getServerSi
     <>
       <Intro description={ssr.hero.introduction.raw} />
       <Member  team={ssr.team}/>
+      <Workshop  seminars={ssr.seminars} />
       <Courses courses={ssr.courses} />
       <Presentation presentation={ssr.presentations}/>
       <Coaching coaching={ssr.coachings}/>

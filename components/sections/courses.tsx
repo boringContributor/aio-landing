@@ -19,7 +19,7 @@ export default function Courses(props: CourseProps) {
              props.courses.map((course) => (
               <Accordion key={course.id} type="multiple">
                 <AccordionItem value={course.title}>
-                  <AccordionTrigger><Test course={course} /></AccordionTrigger>
+                  <AccordionTrigger><Title course={course} /></AccordionTrigger>
                   <AccordionContent>
                     <RichText content={course.description?.raw} renderers={{
                       ul: ({ children }) => <ul className="list-disc">{children}</ul>,
@@ -36,7 +36,7 @@ export default function Courses(props: CourseProps) {
 }
 
 
-const Test = (props: { course: Course }) => <li
+const Title = (props: { course: Course }) => <li
   className="flex flex-wrap items-center justify-between gap-x-6 gap-y-4 py-5 sm:flex-nowrap"
 >
   <div>
@@ -48,7 +48,7 @@ const Test = (props: { course: Course }) => <li
   </div>
   <dl className="flex w-full flex-none justify-between gap-x-8 sm:w-auto">
     <div className="flex -space-x-0.5">
-      <dt className="sr-only">Commenters</dt>
+      <dt className="sr-only">Halter</dt>
       {props.course.people.map((p) => (
         <dd key={p.url}>
           <img

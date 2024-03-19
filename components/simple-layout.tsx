@@ -2,7 +2,7 @@ type SimpleLayoutProps = {
     title?: string,
     intro?: string,
     id: string,
-    children: React.ReactNode,
+    children?: React.ReactNode,
     show?: boolean
 }
 
