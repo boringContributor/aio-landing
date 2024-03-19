@@ -16,7 +16,7 @@ export default function Workshop(props: WorkshopProps) {
   const router = useRouter()
   return (
     <SimpleLayout title="Seminare" id="seminare" intro={intro}>
-      <BentoGrid className="max-w-6xl mx-auto md:auto-rows-[13rem]">
+      <BentoGrid className="max-w-6xl mx-auto md:auto-rows-[12rem]">
         {props.seminars.map((item, i) => (
           <BentoGridItem
             key={i}

@@ -13,7 +13,7 @@ export const BentoGrid = ({
     return (
         <div
             className={cn(
-                "grid md:auto-rows-[18rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto",
+                "grid md:auto-rows-[20rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto",
                 className
             )}
         >
@@ -87,7 +87,7 @@ export const BentoGridItem = ({
 
 
 const Header = (props: { image: string }) => {
-    return <div className="w-full aspect-w-16 aspect-h-10 rounded-tr-lg rounded-tl-lg overflow-hidden xl:aspect-w-16 xl:aspect-h-10 relative">
+    return <div className="w-full aspect-h-12 rounded-tr-lg rounded-tl-lg overflow-hidden relative">
         <img className="object-fill" src={props.image} />
     </div>
 }
