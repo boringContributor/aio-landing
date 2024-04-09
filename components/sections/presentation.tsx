@@ -12,7 +12,7 @@ type PresentationProps = {
 const intro = 'Ein Teil unseres Gesundheitstag-Programms aus max. 120minütigen erlebniszentrierten Kurzvorträgen dient in erster Linie dazu, Ihre Mitarbeiter für das Thema „Gesundheit“ zu begeistern. Darüber hinaus motivieren wir die Teilnehmer über ihre eigene Gesundheit nachzudenken und etwas in Ihrem Leben zu verändern. Hierzu vermitteln wir neueste wissenschaftliche und alltagsrelevante Kenntnisse auf spannende und packende Art und Weise. '
 
 
-export default function Presentation(props: PresentationProps) {
+export default function PresentationSection(props: PresentationProps) {
   const router = useRouter()
   return (
     <SimpleLayout title="Vorträge" id="vortrag" intro={intro}>

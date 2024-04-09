@@ -7,7 +7,7 @@ type ContactProps = {
     contact: Contact
 }
 
-export default function Contact(props: ContactProps) {
+export default function ContactForm(props: ContactProps) {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
