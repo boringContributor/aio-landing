@@ -152,7 +152,7 @@ export default function Contact(props: ContactProps) {
 
                             <div className="sm:col-span-2">
                                 <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
-                                    Message
+                                    Nachricht
                                 </label>
                                 <div className="mt-2.5">
                                     <textarea
