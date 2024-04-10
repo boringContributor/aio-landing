@@ -2,6 +2,7 @@ import { getPresentationById } from "@/lib/api";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Link from "next/link";
+import Balancer from "react-wrap-balancer";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const id = ctx.params?.id as string
@@ -27,6 +28,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
                 <div className="mt-6 text-xl leading-8 break-all">
                     <RichText content={ssr.description?.raw} renderers={{
                         ul: ({ children }) => <ul className="list-disc">{children}</ul>,
+                        li: ({ children }) => <li className="list-disc">{children}</li>,
+                        blockquote: ({ children }) => <blockquote className="border-l-4 border-gray-300 pl-4 italic">{children}</blockquote>,
+                        p: ({ children }) => <Balancer className="w-max">{children}</Balancer>
                     }} />
                 </div>
             </div>

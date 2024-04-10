@@ -20,10 +20,6 @@ export default function ContactForm(props: ContactProps) {
             <div className="mx-auto grid grid-cols-1 lg:grid-cols-2">
                 <div className="relative px-6 pb-20 pt-12 lg:static lg:py-12">
                     <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-                        {/* <p className="mt-6 text-lg leading-8 text-gray-600">
-                            Proin volutpat consequat porttitor cras nullam gravida at. Orci molestie a eu arcu. Sed ut tincidunt
-                            integer elementum id sem. Arcu sed malesuada et magna.
-                        </p> */}
                         <dl className="mt-10 space-y-4 text-base leading-7 text-gray-600">
                             <div className="flex gap-x-4">
                                 <dt className="flex-none">

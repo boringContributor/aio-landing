@@ -41,7 +41,7 @@ export const BentoGridItem = ({
         <div
             onClick={onClick}
             className={cn(
-                "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input p-4 bg-white border border-transparent justify-between flex flex-col space-y-4  cursor-pointer",
+                "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input p-4 bg-white border border-transparent justify-between flex flex-col space-y-2 cursor-pointer",
                 className,
                 image ? "" : "h-min"
             )}
@@ -50,9 +50,6 @@ export const BentoGridItem = ({
             <div className="group-hover/bento:translate-x-2 transition duration-200 space-y-2">
                 <div className="font-sans font-bold text-neutral-600mb-2 mt-2">
                     {title?.replace(/\\n/g, '')}
-                </div>
-                <div className="font-sans font-normal text-neutral-600 text-xs line-clamp-2">
-                    {description?.replace(/\\n/g, '')}
                 </div>
                 <div>
                     <div>

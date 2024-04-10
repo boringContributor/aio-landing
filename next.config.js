@@ -6,6 +6,10 @@ const nextConfig = {
     domains: ['media.graphassets.com', 'images.unsplash.com'],
     minimumCacheTTL: 31536000
   },
+  i18n: {
+    locales: ["de"],
+    defaultLocale: "de",
+  },
 }
 
 module.exports = nextConfig

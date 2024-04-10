@@ -34,9 +34,10 @@ export default function Page(ssr: InferGetServerSidePropsType<typeof getServerSi
     <>
       <Intro description={ssr.hero.introduction.raw} />
       <Member  team={ssr.team}/>
-      <Workshop  seminars={ssr.seminars} />
-      <Courses courses={ssr.courses} />
       <Presentation presentation={ssr.presentations}/>
+      <Courses courses={ssr.courses} />
+        <Workshop  seminars={ssr.seminars} />
+      
       <Coaching coaching={ssr.coachings}/>
       <Blog articles={ssr.articles}/>
       <PartnerSection partner={ssr.partner} />
