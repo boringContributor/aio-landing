@@ -25,7 +25,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
             <Link href={'/#coaching'}>Zurück</Link>
             <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
                 <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{ssr.title}</h1>
-                <div className="mt-6 text-xl leading-8 break-all">
+                <div className="mt-6 text-xl leading-8 break-words text-justify prose lg:prose-xl">
                     <RichText content={ssr.description?.raw} renderers={{
                         ul: ({ children }) => <ul className="list-disc">{children}</ul>,
                         li: ({ children }) => <li className="list-disc">{children}</li>,
