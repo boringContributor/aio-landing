@@ -91,7 +91,7 @@ export const PartnerSection = (props: PartnerProps) => {
                             </p>
                         </Card>
                     ))}
-                    <Card as="li">
+                    {/* <Card as="li">
                             <div className="relative z-10 flex items-center justify-center">
                                 <img
                                     src={TEMP_TK.logo.url}
@@ -107,7 +107,7 @@ export const PartnerSection = (props: PartnerProps) => {
                                 <LinkIcon className="h-5 w-5 flex-none" onClick={() => window.open(TEMP_TK.website)} />
                                 <span className="ml-2">{TEMP_TK.website.split('www.')[1]}</span>
                             </p>
-                        </Card>
+                        </Card> */}
                 </ul>
             </SimpleLayout>
         </>
