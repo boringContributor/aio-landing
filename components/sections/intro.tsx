@@ -5,28 +5,86 @@ type HeroProps = {
     description: RichTextProps['content'];
 }
 export function Intro(props: HeroProps) {
+    const scrollToSection = (id: string) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
     return (
-        <main className="mx-auto">
-            {/* Hero section */}
-             
-                    {/* <div className="mx-auto max-w-7xl px-6 pb-32 pt-18 sm:pt-30 lg:px-8 lg:pt-16"> */}
-                        {/* <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center"> */}
-                            <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
-                                <div className="text-3xl font-bold tracking-tighter text-gray-900 lg:text-6xl animate-fade-up text-center">
-                                    <div className='text-center'><span className='text-center'><span className="text-red-800">a</span>ll <span className="text-red-800">i</span>n </span><span className="text-red-800">o</span>ne</div>
-                                    <h1>Gesundheitsmanagement</h1>
-                                </div>
-                                <div className="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
-                                    <div className="relative text-lg leading-8 text-gray-600 lg:max-w-none">
-                                        <RichText
-                                            renderers={{
-                                                p: ({ children }) => <p className="mt-2 text-center">{children}</p>,
-                                            }}
-                                            content={props.description}
-                                        />
-                                    </div>
-                                </div>
-                            </div>
+        <main className="relative mx-auto overflow-hidden">
+            {/* Background decorative elements */}
+            <div className="absolute inset-0 -z-10">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl">
+                    <div className="absolute top-20 right-0 w-72 h-72 bg-red-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+                    <div className="absolute top-40 left-0 w-72 h-72 bg-red-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+                    <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-red-50 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+                </div>
+            </div>
+
+            {/* Hero content */}
+            <div className="relative px-6 py-16 sm:py-24 lg:py-32 mx-auto max-w-7xl">
+                <div className="mx-auto max-w-4xl text-center">
+                    {/* Logo/Title */}
+                    <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 animate-fade-up">
+                        <div className="mb-2">
+                            <span className="text-red-700">a</span>ll{' '}
+                            <span className="text-red-700">i</span>n{' '}
+                            <span className="text-red-700">o</span>ne
+                        </div>
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text">
+                            Gesundheitsmanagement
+                        </h1>
+                    </div>
+
+                    {/* Description */}
+                    <div className="mt-8 sm:mt-10 text-lg sm:text-xl leading-8 text-gray-700 max-w-3xl mx-auto animate-fade-up animation-delay-200">
+                        <RichText
+                            renderers={{
+                                p: ({ children }) => (
+                                    <p className="mt-4 leading-relaxed">{children}</p>
+                                ),
+                            }}
+                            content={props.description}
+                        />
+                    </div>
+
+                    {/* CTA Buttons */}
+                    <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-up animation-delay-400">
+                        <button
+                            onClick={() => scrollToSection('kontakt')}
+                            className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-red-700 rounded-xl hover:bg-red-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                        >
+                            <span>Termin vereinbaren</span>
+                            <svg
+                                className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </button>
+                        <button
+                            onClick={() => scrollToSection('team')}
+                            className="group inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-gray-900 bg-white rounded-xl border-2 border-gray-200 hover:border-red-700 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md"
+                        >
+                            <span>Unser Team kennenlernen</span>
+                            <svg
+                                className="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                    </div>
+
+
+                </div>
+            </div>
                             {/* <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
                                 <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                                     <div className="relative">

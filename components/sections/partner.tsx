@@ -1,59 +1,12 @@
 import Head from 'next/head'
-import LinkIcon from '@heroicons/react/24/outline/LinkIcon'
-import clsx from 'clsx'
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
 import { SimpleLayout } from '../simple-layout'
 import { Partner } from '../../lib/api'
-
-
-function Card({ as: Component = 'div', className, children }: { as?: any; className?: string; children?: React.ReactNode }) {
-    return (
-        <Component
-            className={clsx(className, 'group relative flex flex-col items:center sm:items-start')}
-        >
-            {children}
-        </Component>
-    )
-}
-
-Card.Link = function CardLink({ children, ...props }: { children?: React.ReactNode; href?: string }) {
-    return (
-        <>
-            <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95  opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl" />
-            <a {...props} target="_blank">
-                <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
-                <span className="relative z-10">{children}</span>
-            </a>
-        </>
-    )
-}
-
-Card.Title = function CardTitle({ as: Component = 'h2', href, children }: { as?: any; href?: string; children?: React.ReactNode }) {
-    return (
-        <Component className="text-base font-semibold tracking-tight text-zinc-800 ">
-            {href ? <Card.Link href={href}>{children}</Card.Link> : children}
-        </Component>
-    )
-}
-
-Card.Description = function CardDescription({ children }: { children?: React.ReactNode }) {
-    return (
-        <p className="relative z-10 mt-2 text-sm text-zinc-600 ">
-            {children}
-        </p>
-    )
-}
 
 type PartnerProps = {
     partner: Partner[]
 }
-const TEMP_TK = {
-    description: '',
-    logo: {
-        url: '/tk.png',
-    },
-    name: 'Techniker Krankenkasse',
-    website: 'https://www.tk.de'
-}
+
 export const PartnerSection = (props: PartnerProps) => {
     return (
         <>
@@ -68,47 +21,47 @@ export const PartnerSection = (props: PartnerProps) => {
                 id="partner"
                 title="Unsere Kooperationspartner"
             >
-                <ul
-                    role="list"
-                    className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
-                >
+                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                     {props.partner.map((crtPartner) => (
-                        <Card as="li" key={crtPartner.name}>
-                            <div className="relative z-10 flex items-center justify-center">
+                        <a
+                            key={crtPartner.name}
+                            href={crtPartner.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group relative flex flex-col bg-white rounded-2xl p-8 shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-gray-200 hover:-translate-y-2"
+                        >
+                            {/* Logo Container */}
+                            <div className="relative flex items-center justify-center h-24 mb-6">
                                 <img
                                     src={crtPartner.logo.url}
                                     alt={crtPartner.name}
-                                    className="max-h-12 w-full object-contain"
+                                    className="max-h-20 max-w-full w-auto object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                                 />
                             </div>
-                            <h2 className="mt-6 text-base font-semibold text-zinc-800 text-center sm:text-left">
-                                <Card.Link href={crtPartner.website}>{crtPartner.name}</Card.Link>
-                            </h2>
-                            {crtPartner.description && <Card.Description>{crtPartner.description}</Card.Description>}
-                            <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-red-500 justify-center">
-                                <LinkIcon className="h-5 w-5 flex-none" onClick={() => window.open(crtPartner.website)} />
-                                <span className="ml-2">{crtPartner.website.split('www.')[1]}</span>
-                            </p>
-                        </Card>
+
+                            {/* Partner Name */}
+                            <h3 className="text-lg font-bold text-gray-900 text-center mb-3 group-hover:text-red-700 transition-colors">
+                                {crtPartner.name}
+                            </h3>
+
+                            {/* Description */}
+                            {crtPartner.description && (
+                                <p className="text-sm text-gray-600 text-center leading-relaxed mb-4 flex-grow">
+                                    {crtPartner.description}
+                                </p>
+                            )}
+
+                            {/* Link indicator */}
+                            <div className="flex items-center justify-center gap-2 text-sm font-semibold text-red-700 group-hover:gap-3 transition-all mt-auto pt-4 border-t border-gray-100">
+                                <span>Website besuchen</span>
+                                <ArrowTopRightOnSquareIcon className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                            </div>
+
+                            {/* Hover accent */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-red-50/0 to-red-100/0 group-hover:from-red-50/30 group-hover:to-red-100/20 transition-all duration-300 pointer-events-none rounded-2xl" />
+                        </a>
                     ))}
-                    {/* <Card as="li">
-                            <div className="relative z-10 flex items-center justify-center">
-                                <img
-                                    src={TEMP_TK.logo.url}
-                                    alt={TEMP_TK.name}
-                                    className="max-h-16 w-full object-contain"
-                                />
-                            </div>
-                            <h2 className="mt-6 text-base font-semibold text-zinc-800 text-center sm:text-left">
-                                <Card.Link href={TEMP_TK.website}>{TEMP_TK.name}</Card.Link>
-                            </h2>
-                            {TEMP_TK.description && <Card.Description>{TEMP_TK.description}</Card.Description>}
-                            <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-red-500 justify-center">
-                                <LinkIcon className="h-5 w-5 flex-none" onClick={() => window.open(TEMP_TK.website)} />
-                                <span className="ml-2">{TEMP_TK.website.split('www.')[1]}</span>
-                            </p>
-                        </Card> */}
-                </ul>
+                </div>
             </SimpleLayout>
         </>
     )
