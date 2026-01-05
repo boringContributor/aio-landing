@@ -21,10 +21,6 @@ export const Layout = (props: LayoutProps) => {
                     property="og:description"
                     content="Betriebliches Gesundheitsmanagement"
                 />
-                <meta
-                    name="og:image"
-                    content={`https://www.aio-gesundheitsmanagement.de/api/og`}
-                />
             </Head>
             <div className="min-h-screen bg-gradient-to-br from-red-100 via-white to-red-300" >
                 <Navigation />
