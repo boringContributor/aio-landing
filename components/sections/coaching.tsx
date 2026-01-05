@@ -14,8 +14,8 @@ export default function CoachingSection(props: CoachingProps) {
   const router = useRouter()
   return (
     <SimpleLayout title="Coaching" id="coaching">
-     <BentoGrid className="max-w-6xl mx-auto">
-      {props.coaching.map((item, i) => ( 
+     <BentoGrid className="max-w-6xl mx-auto md:auto-rows-[20rem]">
+      {props.coaching.map((item, i) => (
         <BentoGridItem
           key={i}
           title={item.title}
@@ -24,7 +24,7 @@ export default function CoachingSection(props: CoachingProps) {
           onClick={() => {
             router.push(`/coaching/${item.id}`)
           }}
-          className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+          className={i === 3 || i === 6 ? "lg:col-span-2" : ""}
         />
       ))}
     </BentoGrid>

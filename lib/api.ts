@@ -176,7 +176,7 @@ const GET_MAIN_CONTENT_QUERY = gql`
     }`;
 
 export const getCmsData = async () => {
-    const data = await request<MainQueryResult>(process.env.HYGRAPH_URL as string, GET_MAIN_CONTENT_QUERY);
+    const data = await request<MainQueryResult>(process.env.graphql as string, GET_MAIN_CONTENT_QUERY);
     return data;
 }
 
@@ -188,7 +188,7 @@ export const getSlugsForArticles = async () => {
         }
     }`;
 
-    const data = await request<{ articles: Article[] }>(process.env.HYGRAPH_URL as string, GET_SLUGS);
+    const data = await request<{ articles: Article[] }>(process.env.graphql as string, GET_SLUGS);
     return data.articles.map(article => createSlug(article.title))
 }
 
@@ -208,7 +208,7 @@ export const getAllArticles = async () => {
         }
     }`;
 
-    const data = await request<{ articles: Article[] }>(process.env.HYGRAPH_URL as string, GET_ARTICLES);
+    const data = await request<{ articles: Article[] }>(process.env.graphql as string, GET_ARTICLES);
     return data.articles;
 };
 
@@ -225,7 +225,7 @@ export const getArticleById = async (id: string) => {
             }
         }`;
 
-    const data = await request<{ portfolio: Article }>(process.env.HYGRAPH_URL as string, GET_ARTICLE_BY_ID, { id });
+    const data = await request<{ portfolio: Article }>(process.env.graphql as string, GET_ARTICLE_BY_ID, { id });
 
     return data.portfolio;
 }
@@ -241,7 +241,7 @@ export const getPresentations = async () => {
         }
     }`;
 
-    const data = await request<{ presentations: Presentation[] }>(process.env.HYGRAPH_URL as string, GET_PRESENTATIONS);
+    const data = await request<{ presentations: Presentation[] }>(process.env.graphql as string, GET_PRESENTATIONS);
     return data.presentations;
 }
 
@@ -258,7 +258,7 @@ export const getPresentationById = async (id: string) => {
                 }
             }`;
 
-    const data = await request<{ presentation: Presentation }>(process.env.HYGRAPH_URL as string, GET_PRESENTATION_BY_ID, { id });
+    const data = await request<{ presentation: Presentation }>(process.env.graphql as string, GET_PRESENTATION_BY_ID, { id });
 
     return data.presentation;
 }
@@ -275,7 +275,7 @@ export const getCoachingById = async (id: string) => {
                     }
                 }`;
     
-        const data = await request<{ coaching: Coaching }>(process.env.HYGRAPH_URL as string, GET_COACHING_BY_ID, { id });
+        const data = await request<{ coaching: Coaching }>(process.env.graphql as string, GET_COACHING_BY_ID, { id });
     
         return data.coaching;
 }
@@ -292,7 +292,7 @@ export const getSeminarById = async (id: string) => {
                 }
             }`;
 
-    const data = await request<{ seminar: Workshop }>(process.env.HYGRAPH_URL as string, GET_SEMINAR_BY_ID, { id });
+    const data = await request<{ seminar: Workshop }>(process.env.graphql as string, GET_SEMINAR_BY_ID, { id });
 
     return data.seminar;
 }

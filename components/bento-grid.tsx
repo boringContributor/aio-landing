@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
-import { ChevronRightIcon } from "@heroicons/react/20/solid";
-import Link from "next/link";
+import { ArrowRightIcon } from "@heroicons/react/20/solid";
 
 
 export const BentoGrid = ({
@@ -13,7 +12,7 @@ export const BentoGrid = ({
     return (
         <div
             className={cn(
-                "grid md:auto-rows-[20rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto",
+                "grid md:auto-rows-[20rem] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 max-w-7xl mx-auto",
                 className
             )}
         >
@@ -41,50 +40,69 @@ export const BentoGridItem = ({
         <div
             onClick={onClick}
             className={cn(
-                "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input p-4 bg-white border border-transparent justify-between flex flex-col space-y-2 cursor-pointer",
+                "group relative row-span-1 rounded-2xl hover:shadow-2xl transition-all duration-300 bg-white border border-gray-100 cursor-pointer overflow-hidden",
+                "hover:scale-[1.02] hover:-translate-y-1",
                 className,
-                image ? "" : "h-min"
+                !image && "flex flex-col justify-between min-h-[240px] p-6 sm:p-8"
             )}
         >
-            {image ? <Header image={image} /> : null}
-            <div className="group-hover/bento:translate-x-2 transition duration-200 space-y-2">
-                <div className="font-sans font-bold text-neutral-600mb-2 mt-2">
+            {/* Header Image */}
+            {image && <Header image={image} />}
+
+            {/* Content Container */}
+            <div className={cn(
+                "flex flex-col h-full p-6 sm:p-8",
+                image ? "pt-4" : ""
+            )}>
+                {/* Instructors - Top */}
+                {people && people.length > 0 && (
+                    <div className="flex -space-x-2 mb-4">
+                        {people.map((p) => (
+                            <img
+                                key={p.url}
+                                className="h-9 w-9 sm:h-10 sm:w-10 object-cover rounded-full bg-gray-100 ring-3 ring-white shadow-md"
+                                src={p.url}
+                                alt=""
+                            />
+                        ))}
+                    </div>
+                )}
+
+                {/* Title */}
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-red-700 transition-colors">
                     {title?.replace(/\\n/g, '')}
-                </div>
-                <div>
-                    <div>
-                        <dl className="flex w-full flex-none justify-between gap-x-8 sm:w-auto">
-                            <div className="flex -space-x-0.5">
-                                <dt className="sr-only">Halter</dt>
-                                {people?.map((p) => (
-                                    <dd key={p.url}>
-                                        <img
-                                            className="h-8 w-8 object-cover rounded-full bg-gray-50 ring-2 ring-white"
-                                            src={p.url}
-                                        />
-                                    </dd>
-                                ))}
-                            </div>
-                        </dl>
-                    </div>
-                    <div className="flex divide-x divide-gray-200">
-                        <div
-                            className="relative -mr-px inline-flex w-0 flex-1 gap-x-3 rounded-bl-lg border border-transparent py-4 pb-0 text-sm font-semibold text-gray-900"
-                        >
-                            <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-                            Mehr erfahren
-                        </div>
-                    </div>
+                </h3>
+
+                {/* Description with gradient fade */}
+                <div className="relative flex-grow mb-4">
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed line-clamp-3">
+                        {description}
+                    </p>
+                    <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none" />
                 </div>
 
+                {/* CTA Button */}
+                <div className="flex items-center gap-2 text-sm font-semibold text-red-700 group-hover:text-red-900 group-hover:gap-3 transition-all mt-auto">
+                    <span>Mehr erfahren</span>
+                    <ArrowRightIcon className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </div>
             </div>
+
+            {/* Hover accent overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-50/0 to-red-100/0 group-hover:from-red-50/20 group-hover:to-red-100/10 transition-all duration-300 pointer-events-none rounded-2xl" />
         </div>
     );
 };
 
 
 const Header = (props: { image: string }) => {
-    return <div className="w-full aspect-h-12 rounded-tr-lg rounded-tl-lg overflow-hidden relative">
-        <img className="object-fill" src={props.image} />
-    </div>
+    return (
+        <div className="w-full h-40 sm:h-48 overflow-hidden relative rounded-t-2xl">
+            <img
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                src={props.image}
+                alt=""
+            />
+        </div>
+    )
 }
