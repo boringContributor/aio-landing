@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "*",
+      "destination": "https://www.physioteam-lappersorf.de/:path*",
+      "permanent": true
+    }
+  ]
+}
